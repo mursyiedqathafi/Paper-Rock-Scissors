@@ -1,0 +1,3 @@
+model.compile(loss='categorical_crossentropy',
+              optimizer=tf.optimizers.Adam(),
+              metrics=['accuracy'])
