@@ -1,0 +1,22 @@
+import split_folders
+split_folders.ratio('/tmp/rockpaperscissors/rps-cv-images', output="/tmp/rockpaperscissors/hasil_split", seed=1337, ratio=(.6, .4)) # default values
+ 
+base_dir = '/tmp/rockpaperscissors/hasil_split'
+train_dir = os.path.join(base_dir, 'train')
+validation_dir = os.path.join(base_dir, 'val')
+
+train_datagen = ImageDataGenerator(
+                    validation_split=0.4,
+                    rescale=1./255,
+                    rotation_range=20,
+                    horizontal_flip=True,
+                    shear_range = 0.2,
+                    fill_mode = 'nearest')
+ 
+test_datagen = ImageDataGenerator(
+                    validation_split=0.4,
+                    rescale=1./255,
+                    rotation_range=20,
+                    horizontal_flip=True,
+                    shear_range = 0.2,
+                    fill_mode = 'nearest')
